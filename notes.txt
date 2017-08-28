@@ -1,0 +1,27 @@
+muse
+
+array->
+events
+desc
+pics
+
+
+
+gallery on browser
+slider on mobile
+
+
+
+DESIGN
+----
+materialize
+----
+tap target for tomorrows date
+
+
+
+for (i in allEvents) {
+        if (allEvents[i].date === current) {
+            console.log(allEvents[i]);
+        }
+    }
