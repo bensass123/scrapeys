@@ -21,8 +21,8 @@ var getTuneStub = (fly) => {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/NEIGHBORHOOD.json', json, 'utf8', ()=>{
-        console.log('NEIGHBORHOOD.json created');
+    fs.writeFile('../JSON/NEIGHBORHOOD-PARTIAL.json', json, 'utf8', ()=>{
+        console.log('NEIGHBORHOOD-PARTIAL.json created');
     })
 }
 
@@ -67,7 +67,7 @@ $('div.list-view-item').each(function(i, elem) {
 
     //times
     var times = $(elem).children('div.list-view-details').children('h2.times').children('span.doors').text().trim();
-    times = times.substring(times.length - 7, times.length - 2);
+    // times = times.substring(times.length - 7, times.length - 2);
     show.times = times;
     console.log(times);
     //end times

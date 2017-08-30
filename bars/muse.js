@@ -20,12 +20,12 @@ var getTicketFly = (fly) => {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/MUSE.json', json, 'utf8', ()=>{
-        console.log('MUSE.json created');
+    fs.writeFile('../JSON/MUSE-PARTIAL.json', json, 'utf8', ()=>{
+        console.log('MUSE-PARTIAL.json created');
     })
 }
 
-$('div.list-view-details').each(function(i, elem) { 
+$('div.list-view-item').each(function(i, elem) { 
 
     var show = {
         venue: 'Evening Muse',
@@ -36,29 +36,54 @@ $('div.list-view-details').each(function(i, elem) {
         tuneStub: '',
         href: '',
         desc: '',
-        img: ''
+        img: '',
+        tix: ''
     }
 
     // band/event
-    console.log($(elem).children('h1').text());
-    show.event = $(elem).children('h1').text();
+    var mains = [];
+    var headliners = $(elem).children('div.list-view-details').children('h1.headliners');
+    console.log(headliners.length);
+    headliners.each((i, elem)=>{
+        mains[i] = $(elem).text();
+    })
+    var event = mains.join(' & ');
+    console.log(event, "  <-- headliners string");
+    
+
+    var opener = $(elem).children('div.list-view-details').children('h2.supports').text();
+    console.log(opener.length, ' <---- openers')
+    if (opener.length > 0) {
+        // console.log(opener,"opening");
+        event += " [Opening Act: " + opener + "]";
+    }
+
+    show.event = event;
+    //console.log(show.event);
+    // end band event
 
     // date
 
-    console.log(moment($(elem).children('h2.dates').text()).format("MM DD 17"));
-    show.date = moment($(elem).children('h2.dates').text()).format("MM DD 17");
+    console.log(moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17"));
+    show.date = moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17");
 
     // times
-    console.log($(elem).children('h2.times').text());
-    show.times = $(elem).children('h2.times').text();
+    console.log($(elem).children('div.list-view-details').children('h2.times').text());
+    show.times = $(elem).children('div.list-view-details').children('h2.times').text().trim();
 
     //href
-    console.log($(elem).prev().attr('href'));
-    show.href = 'http://www.eveningmuse.com' + $(elem).prev().attr('href');
+    console.log($(elem).children('div.list-view-details').prev().attr('href'), '<-- href');
+    show.href = 'http://www.eveningmuse.com' + $(elem).children('div.list-view-details').prev().attr('href');
 
     //ticketfly
-    console.log(getTicketFly($(elem).prev().attr('href')));
-    show.ticketfly = getTicketFly($(elem).prev().attr('href'));
+    var tix, i, href;
+    href = show.href;
+    var i = href.indexOf('/event/') + 7;
+    var tix = 'https://www.ticketfly.com/purchase/event/' + href.substring(i, i+7);
+    
+
+    show.tix = tix;
+    console.log(tix, '<-- tix');
 
 
     console.log(i);

@@ -4,11 +4,15 @@ var s  = require('./snug.js');
 var m  = require('./muse.js');
 var t  = require('./tinroof.js');
 var v = require('./visulite.js');
+var n = require('./neighborhood.js');
+var f = require('./fillmore.js');
+var milestone = require('./milestone.js');
 
 
 // do extended scrapes w delay
 
 setTimeout(()=>{
-    var m2 = require('../descs/museDesc.js');
-    var v2 = require('../descs/visuliteDesc.js');
-}, 1000)
+    var descs = require('../descs/all.js');
+}, 3000)
+
+

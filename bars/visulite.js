@@ -23,22 +23,23 @@ var isLive = (str) => {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/VISULITE.json', json, 'utf8', ()=>{
-        console.log('VISULITE.json created');
+    fs.writeFile('../JSON/VISULITE-PARTIAL.json', json, 'utf8', ()=>{
+        console.log('VISULITE-PARTIAL.json created');
     })
 }
 
 $('div.showDetails').each(function(i, elem) { 
 
     var show = {
-    event: '',
-    date: '',
-    times: '',
-    id: '',
-    href: '',
-    hrefRef: '',
-    desc: '',
-    img: ''
+        venue: 'The Visulite',
+        event: '',
+        date: '',
+        times: '',
+        id: '',
+        href: '',
+        hrefRef: '',
+        desc: '',
+        img: ''
     }
 
     //href 

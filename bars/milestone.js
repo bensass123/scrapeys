@@ -19,7 +19,7 @@ var getTuneStub = (fly) => {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/MILESTONE-FULL.json', json, 'utf8', ()=>{
+    fs.writeFile('../../cltmusic/JSON/MILESTONE-FULL.json', json, 'utf8', ()=>{
         console.log('MILESTONE-FULL.json created');
     })
 }
@@ -34,7 +34,8 @@ $('article.eventlist-event').each(function(i, elem) {
         tuneStub: '',
         href: '',
         desc: '',
-        ticketfly: ''
+        ticketfly: '',
+        tix: ''
     }
 
     //console.log($(elem))
@@ -58,7 +59,7 @@ $('article.eventlist-event').each(function(i, elem) {
     // times
 
     var times = $(elem).children('div.eventlist-column-info').children('ul.eventlist-meta').children('li.eventlist-meta-time').text().trim();
-    times = times.substring(0,4);
+    times = 'Doors:   ' + times.substring(0,7).trim();
     console.log(times);
     show.times = times;
 
@@ -67,13 +68,17 @@ $('article.eventlist-event').each(function(i, elem) {
     //show.href = 'http://www.tunestub.com/events/' + getTuneStub($(elem).prev().children('a').attr('href'));
 
     //ticketfly
-    var flyStr = $(elem).children('div.eventlist-column-info').children('div.eventlist-excerpt').html();
-    var i = flyStr.indexOf('ticketfly.com/event/');
-    if (i > -1) {
-        var ticketfly = flyStr.substring(i + 20, i + 27);
-        console.log(ticketfly);
-        show.ticketfly = ticketfly;
+    var flyStr = $(elem).children('div.eventlist-column-info').children('div.eventlist-excerpt').children('p').children('a').attr('href');
+    if (flyStr != null) {
+        show.tix = flyStr;
     }
+    console.log(show.tix, "  <--- tix");
+    // var i = flyStr.indexOf('ticketfly.com/event/');
+    // if (i > -1) {
+    //     var ticketfly = flyStr.substring(i + 20, i + 27);
+    //     console.log(ticketfly);
+    //     show.ticketfly = ticketfly;
+    // }
     
 
 

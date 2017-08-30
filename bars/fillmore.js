@@ -21,8 +21,8 @@ var getTuneStub = (fly) => {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/FILLMORE.json', json, 'utf8', ()=>{
-        console.log('FILLMORE.json created');
+    fs.writeFile('../../cltmusic/JSON/FILLMORE-FULL.json', json, 'utf8', ()=>{
+        console.log('FILLMORE-FULL.json created');
     })
 }
 
@@ -37,7 +37,7 @@ $('div.evContW').each(function(i, elem) {
         href: '',
         desc: '',
         ticketfly: '',
-        livenation: ''
+        tix: ''
     }
 
     // band/event
@@ -54,9 +54,9 @@ $('div.evContW').each(function(i, elem) {
         console.log('fillmore');
     }
 
-    // livenation
-    show.livenation = $(elem).children('div.event-btns').children('a.evTktBtn').attr('href');
-    console.log(show.livenation);
+    // tix
+    show.tix = $(elem).children('div.event-btns').children('a.evTktBtn').attr('href');
+    console.log(show.tix);
 
     // href
     show.href = $(elem).children('div.event-btns').children('a.btn-color').attr('href');
@@ -74,7 +74,7 @@ $('div.evContW').each(function(i, elem) {
     // times
     var times = $(elem).children('a').children('div.titleWidth').children('div.titleSize').children('div.eventTime').text().trim();
     var i = times.indexOf('Show:');
-    times = times.substring(i+5, times.length-2).trim();
+    //times = times.substring(i+5, times.length-2).trim();
     show.times = times;
     console.log(show.times);
 

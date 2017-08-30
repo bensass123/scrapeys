@@ -21,7 +21,7 @@ return fly.substring(43,49);
 
 var makeFile = (obj) => {
 var json = JSON.stringify(obj);
-fs.writeFile('../JSON/FILLMORE.json', json, 'utf8', ()=>{
+fs.writeFile('../../cltmusic/JSON/FILLMORE.json', json, 'utf8', ()=>{
     console.log('FILLMORE.json created');
 })
 }

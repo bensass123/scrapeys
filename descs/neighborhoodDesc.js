@@ -14,7 +14,7 @@ var moment = require('moment');
 var cheerio = require('cheerio');
 
 
-var data = require('../JSON/NEIGHBORHOOD.json');
+var data = require('../JSON/NEIGHBORHOOD-PARTIAL.json');
 
 var newData = [];
 
@@ -29,7 +29,21 @@ var doit = (obj) => {
         console.log(desc);
         newObj.desc = desc;
 
+        // setting ticket link
+        // https://www.ticketfly.com/purchase/event/1521112
+        // http://www.neighborhoodtheatre.com/event/1521112-heather-mcdonald-charlotte/
+        var tix, i, href;
+        href = obj.href;
+        var i = href.indexOf('/event/') + 7;
+        var tix = 'https://www.ticketfly.com/purchase/event/' + href.substring(i, i+7);
+        
+
+        newObj.tix = tix;
+        console.log(tix, '<-- tix');
+
         console.log('\n\n', '----');
+
+        
             
         newData.push(newObj);
         // })
@@ -43,7 +57,7 @@ for (var i = 0; i < data.length; i++) {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/NEIGHBORHOOD-FULL.json', json, 'utf8', ()=>{
+    fs.writeFile('../../cltmusic/JSON/NEIGHBORHOOD-FULL.json', json, 'utf8', ()=>{
         console.log('NEIGHBORHOOD-FULL.json created');
     })
 }

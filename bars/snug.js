@@ -19,8 +19,8 @@ var getTuneStub = (fly) => {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/snugFULL.json', json, 'utf8', ()=>{
-        console.log('snugFULL.json created');
+    fs.writeFile('../../cltmusic/JSON/SNUG-FULL.json', json, 'utf8', ()=>{
+        console.log('snug-FULL.json created');
     })
 }
 
@@ -52,7 +52,7 @@ $('div.show-info').each(function(i, elem) {
 
     // // times
     console.log($(elem).children('span.all-date').children('span.show-time').text().trim());
-    show.times = $(elem).children('span.all-date').children('span.show-time').text().trim();
+    show.times = 'Doors:  ' + $(elem).children('span.all-date').children('span.show-time').text().trim();
 
     // //href
     console.log($(elem).prev().children('a').attr('href'));
@@ -61,6 +61,10 @@ $('div.show-info').each(function(i, elem) {
     //TuneStub
     console.log(getTuneStub($(elem).prev().children('a').attr('href')));
     show.tuneStub = getTuneStub($(elem).prev().children('a').attr('href'));
+
+    //tix
+    show.tix = 'http://www.tunestub.com/events/' + show.tuneStub;
+    console.log(show.tix, ' <---- tix link')
 
 
     // console.log(i)

@@ -28,8 +28,8 @@ var isLive = (str) => {
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../JSON/tinroofFULL.json', json, 'utf8', ()=>{
-        console.log('tinroofFULL.json created');
+    fs.writeFile('../../cltmusic/JSON/TINROOF-FULL.json', json, 'utf8', ()=>{
+        console.log('TINROOF-FULL.json created');
     })
 }
 
@@ -44,14 +44,20 @@ $('tr').each(function(i, elem) {
         href: '',
         desc: '',
         tuneStub: '',
-        img: ''
+        img: '',
+        tix: ''
     }
 
     // band/event
     //console.log($(elem).children('td.name').children('h3').text().trim());
     show.event = $(elem).children('td.name').children('h3').text().trim();
 
-    // date
+    // tix
+    var tix = $(elem).children('td.name').children('a').attr('href');
+    if (tix != null) {
+        show.tix=tix;
+    }
+    console.log(show.tix, '  <--- tix');
     
     //console.log($(elem).children('td.date').children('ul').text().trim());
     // var str = $(elem).children('td.date').children('ul').text().trim();
@@ -86,7 +92,7 @@ $('tr').each(function(i, elem) {
         shows.push(show);
     }
      
-    console.log(show);
+    //console.log(show);
     
 })
 
