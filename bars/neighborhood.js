@@ -26,6 +26,15 @@ var makeFile = (obj) => {
     })
 }
 
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+    }
+    return false;
+}
+
 $('div.list-view-item').each(function(i, elem) { 
 
     var show = {

@@ -26,6 +26,15 @@ var makeFile = (obj) => {
     })
 }
 
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+    }
+    return false;
+}
+
 $('div.evContW').each(function(i, elem) { 
 
     var show = {
@@ -56,7 +65,7 @@ $('div.evContW').each(function(i, elem) {
 
     // tix
     show.tix = $(elem).children('div.event-btns').children('a.evTktBtn').attr('href');
-    console.log(show.tix);
+    console.log(show.tix, ' tix <---');
 
     // href
     show.href = $(elem).children('div.event-btns').children('a.btn-color').attr('href');
@@ -73,7 +82,7 @@ $('div.evContW').each(function(i, elem) {
 
     // times
     var times = $(elem).children('a').children('div.titleWidth').children('div.titleSize').children('div.eventTime').text().trim();
-    var i = times.indexOf('Show:');
+    // var i = times.indexOf('Show:');
     //times = times.substring(i+5, times.length-2).trim();
     show.times = times;
     console.log(show.times);
@@ -85,7 +94,9 @@ $('div.evContW').each(function(i, elem) {
 
     console.log('\n')
 
-    shows.push(show);
+    if (!(arrContains(show, shows))) {
+        shows.push(show);
+    }
     
 })
 

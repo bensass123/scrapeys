@@ -28,10 +28,19 @@ var makeFile = (obj) => {
     })
 }
 
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+    }
+    return false;
+}
+
 $('div.showDetails').each(function(i, elem) { 
 
     var show = {
-        venue: 'The Visulite',
+        venue: 'Visulite Theatre',
         event: '',
         date: '',
         times: '',
@@ -48,10 +57,11 @@ $('div.showDetails').each(function(i, elem) {
     console.log(hrefString)
 
     console.log('\n\n\n');
+    console.log(i)
 
     shows.push(show);
 })
 
-
+console.log(shows.length);
 makeFile(shows);
 

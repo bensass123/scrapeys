@@ -24,9 +24,18 @@ var makeFile = (obj) => {
     })
 }
 
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+    }
+    return false;
+}
+
 $('div.show-info').each(function(i, elem) { 
 
-    var show = {
+    let show = {
         venue: 'Snug Harbor',
         event: '',
         date: '',
@@ -35,7 +44,8 @@ $('div.show-info').each(function(i, elem) {
         href: '',
         desc: '',
         ticketfly: '',
-        img: ''
+        img: '',
+        tix: ''
     }
 
     // band/event
@@ -71,7 +81,9 @@ $('div.show-info').each(function(i, elem) {
 
     console.log('\n\n\n')
 
-    shows.push(show);
+    if (!(arrContains(show, shows))) {
+        shows.push(show);
+    }
     
 })
 

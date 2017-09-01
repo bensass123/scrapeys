@@ -18,6 +18,16 @@ var data = require('../JSON/VISULITE-PARTIAL.json');
 
 var newData = [];
 
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 // date, times, id, href, desc, img
 
 var doit = (obj) => {  
@@ -67,9 +77,9 @@ var doit = (obj) => {
 
             // times
             var timeStr = $(elem).children('p').text();
-            var i = timeStr.indexOf('Doors Open');
+            var ind = timeStr.indexOf('Doors Open');
             //console.log(timeStr.substring(i + 12, i + 16));
-            timeStr = timeStr.substring(i + 12, i + 16);
+            timeStr = timeStr.substring(ind + 12, ind + 16);
             newObj.times = timeStr;
 
             //desc
@@ -80,9 +90,11 @@ var doit = (obj) => {
             
 
             console.log('\n\n', '----');
-            console.log(i, ' <--- index');
             
-            newData.push(newObj);
+            if (!(arrContains(newObj, newData))) {
+                newData.push(newObj);
+            }
+            
         })
     })
 }

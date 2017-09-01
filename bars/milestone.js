@@ -24,7 +24,17 @@ var makeFile = (obj) => {
     })
 }
 
-$('article.eventlist-event').each(function(i, elem) { 
+
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+   }
+    return false;
+}
+
+$('div.eventlist--upcoming').children('article').each(function(i, elem) { 
 
     var show = {
         venue: 'The Milestone Club',
@@ -38,8 +48,6 @@ $('article.eventlist-event').each(function(i, elem) {
         tix: ''
     }
 
-    //console.log($(elem))
-
     // band/event
     console.log($(elem).children('div.eventlist-column-info').children('h1.eventlist-title').text());
     show.event = $(elem).children('div.eventlist-column-info').children('h1.eventlist-title').text();
@@ -49,70 +57,40 @@ $('article.eventlist-event').each(function(i, elem) {
     show.date = moment($(elem).children('a.eventlist-column-date').children('div.eventlist-datetag').children('div.eventlist-datetag-inner').children('div.eventlist-datetag-startdate').text()).format('MM DD 17');
 
     //desc 
-
     var descStr = $(elem).children('div.eventlist-column-info').children('div.eventlist-excerpt').text();
     descStr = descStr.substring(0, descStr.length - 11);
     console.log(descStr);
     show.desc = descStr;
 
-
     // times
-
     var times = $(elem).children('div.eventlist-column-info').children('ul.eventlist-meta').children('li.eventlist-meta-time').text().trim();
     times = 'Doors:   ' + times.substring(0,7).trim();
     console.log(times);
     show.times = times;
-
-    // //href
-   // console.log($(elem).prev().children('a').attr('href'));
-    //show.href = 'http://www.tunestub.com/events/' + getTuneStub($(elem).prev().children('a').attr('href'));
 
     //ticketfly
     var flyStr = $(elem).children('div.eventlist-column-info').children('div.eventlist-excerpt').children('p').children('a').attr('href');
     if (flyStr != null) {
         show.tix = flyStr;
     }
+
     console.log(show.tix, "  <--- tix");
-    // var i = flyStr.indexOf('ticketfly.com/event/');
-    // if (i > -1) {
-    //     var ticketfly = flyStr.substring(i + 20, i + 27);
-    //     console.log(ticketfly);
-    //     show.ticketfly = ticketfly;
-    // }
+    console.log(i, "<-index");
+
+    console.log('\n');
     
-
-
-
-    // console.log(i)
-
-    console.log('\n')
-
-    shows.push(show);
+    
+    if (!(arrContains(show, shows))) {
+        shows.push(show);
+    }
+        
     
 })
 
-// uncomment this
 
-//console.log(shows);
-makeFile(shows);
-
-
-
-// setTimeout(()=>{}, 3000000);
+setTimeout(()=>{
+    makeFile(shows);
+}, 1000);
 
 
-// // h2 topline-info 
-
-// // h1 headliners
-
-
-
-// var selectors = {
-//     titles: 'a[class=show-title-a]',
-//     date: 'span[class=all-date]',
-//     desc: 'p[class=show-desc]' 
-// }
-
-
-
-
+console.log(shows.length, '<-- shows.length');

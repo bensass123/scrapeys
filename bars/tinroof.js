@@ -33,6 +33,15 @@ var makeFile = (obj) => {
     })
 }
 
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+    }
+    return false;
+}
+
 $('tr').each(function(i, elem) { 
 
     var show = {
@@ -88,7 +97,7 @@ $('tr').each(function(i, elem) {
 
 
     // test to see if live music before pushing to array
-    if (isLive(show.desc) && isLive(show.event)) {
+    if (isLive(show.desc) && isLive(show.event) && !(arrContains(show, shows))) {
         shows.push(show);
     }
      

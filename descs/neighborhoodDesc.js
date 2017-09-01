@@ -18,6 +18,15 @@ var data = require('../JSON/NEIGHBORHOOD-PARTIAL.json');
 
 var newData = [];
 
+var arrContains = (item, arr) => {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].event === item.event) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // date, times, id, href, desc, img
 
 var doit = (obj) => {  
@@ -44,8 +53,11 @@ var doit = (obj) => {
         console.log('\n\n', '----');
 
         
+        if (!(arrContains(newObj, newData))) {
+            newData.push(newObj);
+        }
             
-        newData.push(newObj);
+        
         // })
     })
 }
