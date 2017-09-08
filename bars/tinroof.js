@@ -58,7 +58,7 @@ $('tr').each(function(i, elem) {
     }
 
     // band/event
-    //console.log($(elem).children('td.name').children('h3').text().trim());
+    //// console.log($(elem).children('td.name').children('h3').text().trim());
     show.event = $(elem).children('td.name').children('h3').text().trim();
 
     // tix
@@ -66,34 +66,34 @@ $('tr').each(function(i, elem) {
     if (tix != null) {
         show.tix=tix;
     }
-    console.log(show.tix, '  <--- tix');
+    // console.log(show.tix, '  <--- tix');
     
-    //console.log($(elem).children('td.date').children('ul').text().trim());
+    //// console.log($(elem).children('td.date').children('ul').text().trim());
     // var str = $(elem).children('td.date').children('ul').text().trim();
     
     show.date = moment($(elem).children('td.date').children('ul').text().trim()).format('MM DD 17');
 
-    // console.log(moment($(elem).children('td.date').children('ul').text().trim()).format('MM DD 17'));
+    // // console.log(moment($(elem).children('td.date').children('ul').text().trim()).format('MM DD 17'));
 
     // // times
-    console.log(moment($(elem).children('td.date').children('ul').text().trim()).format('hh:mm'));
+    // console.log(moment($(elem).children('td.date').children('ul').text().trim()).format('hh:mm'));
     show.times = moment($(elem).children('td.date').children('ul').text().trim()).format('hh:mm');
 
     //desc
-    //console.log($(elem).children('td.name').children('div.event-info').children('p').text().trim());
+    //// console.log($(elem).children('td.name').children('div.event-info').children('p').text().trim());
     show.desc = $(elem).children('td.name').children('div.event-info').children('p').text().trim();
 
     // //href
-    // console.log($(elem).prev().attr('href'));
+    // // console.log($(elem).prev().attr('href'));
     // show.href = 'http://www.eveningmuse.com/' + $(elem).prev().attr('href');
 
     // //ticketfly
-    // console.log(getTicketFly($(elem).prev().attr('href')));
+    // // console.log(getTicketFly($(elem).prev().attr('href')));
     // show.ticketfly = getTicketFly($(elem).prev().attr('href'));
 
 
-    // console.log(i);
-    console.log('\n\n\n');
+    // // console.log(i);
+    // console.log('\n\n\n');
 
 
     // test to see if live music before pushing to array
@@ -101,7 +101,7 @@ $('tr').each(function(i, elem) {
         shows.push(show);
     }
      
-    //console.log(show);
+    //// console.log(show);
     
 })
 

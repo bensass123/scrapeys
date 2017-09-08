@@ -50,16 +50,16 @@ $('div.list-view-item').each(function(i, elem) {
 
     // band/event
     var event = $(elem).children('div.list-view-details').children('h1.headliners').text();
-    // console.log(event,"main");
+    // // console.log(event,"main");
 
     var opener = $(elem).children('div.list-view-details').children('h2.supports').text();
     if (opener.length > 0) {
-        // console.log(opener,"opening");
+        // // console.log(opener,"opening");
         event += " [Opening Act: " + opener + "]";
     }
 
     show.event = event;
-    console.log(show.event);
+    // console.log(show.event);
     // end band event
 
     // date
@@ -71,14 +71,14 @@ $('div.list-view-item').each(function(i, elem) {
     } else {
         show.date = moment(date).format('MM DD 17');
     }
-    console.log(show.date);
+    // console.log(show.date);
     // end date
 
     //times
     var times = $(elem).children('div.list-view-details').children('h2.times').children('span.doors').text().trim();
     // times = times.substring(times.length - 7, times.length - 2);
     show.times = times;
-    console.log(times);
+    // console.log(times);
     //end times
     
 
@@ -86,20 +86,20 @@ $('div.list-view-item').each(function(i, elem) {
     // //href
     var href = $(elem).children('div.list-view-details').children('h1.headliners').children('a').attr('href');
     show.href = 'http://www.neighborhoodtheatre.com' + href;
-    console.log(show.href);
+    // console.log(show.href);
     // end href
 
 
     // img
     var img = $(elem).children('a').children('img').attr('src');
     show.img = img;
-    console.log(show.img);
+    // console.log(show.img);
 
 
 
-    // console.log(i)
+    // // console.log(i)
 
-    console.log('\n')
+    // console.log('\n')
 
     shows.push(show);
     

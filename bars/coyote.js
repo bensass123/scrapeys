@@ -22,7 +22,7 @@ return fly.substring(43,49);
 var makeFile = (obj) => {
 var json = JSON.stringify(obj);
 fs.writeFile('../JSON/FILLMORE.json', json, 'utf8', ()=>{
-    console.log('FILLMORE.json created');
+    // console.log('FILLMORE.json created');
 })
 }
 
@@ -39,7 +39,7 @@ var show = {
     ticketfly: ''
 }
 
-//console.log($(elem))
+//// console.log($(elem))
 
 // band/event
 
@@ -59,9 +59,9 @@ var show = {
 
 
 
-// console.log(i)
+// // console.log(i)
 
-console.log('\n')
+// console.log('\n')
 
 shows.push(show);
 

@@ -1,7 +1,7 @@
 from selenium import webdriver
 import io
 import os
-
+import time
 import json
 from collections import namedtuple
 
@@ -10,6 +10,8 @@ def download(venue, url):
     browser = webdriver.Chrome() #replace with .Firefox() etc
 
     browser.get(url) #navigate to the page
+
+    time.sleep(5)
 
     innerHTML = browser.execute_script("return document.body.innerHTML") #returns the inner HTML as a string
 
@@ -30,3 +32,8 @@ download('EveningMuse','http://www.eveningmuse.com/')
 download('TinRoof','http://www.tinroofcharlotte.com/')
 download('Milestone','https://themilestone.club/calendar/')
 download('CoyoteJoes','http://www.coyote-joes.com/events.html')
+download('Petras','http://petrasbar.com/')
+
+
+
+

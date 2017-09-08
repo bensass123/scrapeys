@@ -50,30 +50,32 @@ var eventObjMaker = (event) => {
             img: '',
             tix: ''
         }
-        //console.log(date);
-        //console.log(event.summary.charAt(event.summary.length - 5));
+        //// console.log(date);
+        //// console.log(event.summary.charAt(event.summary.length - 5));
         eventsFinal.push(obj);
-        //console.log(time);
-        console.log(summary);
+        //// console.log(time);
+        // console.log(summary);
         
     } else {
-        //console.log('DATE REJECTED TOO OLD ', date);
+        //// console.log('DATE REJECTED TOO OLD ', date);
     }
 }
 
 publicGoogleCalendar.getEvents(function(err, events) {
-if (err) { return console.log(err.message); }
+if (err) { 
+    return  console.log(err.message); 
+}
 // events is now array of all calendar events
-    events.forEach(function(element) {
-        if (isLiveMusic(element)) {
-            liveEvents.push(element);
-        }
-    }, this);
-    liveEvents.forEach(function(element) {
-        eventObjMaker(element);
-    }, this);
-    //console.log(eventsFinal);
-    makeFile(eventsFinal);
+events.forEach(function(element) {
+    if (isLiveMusic(element)) {
+        liveEvents.push(element);
+    }
+}, this);
+liveEvents.forEach(function(element) {
+    eventObjMaker(element);
+}, this);
+//// console.log(eventsFinal);
+makeFile(eventsFinal);
 });
 
 // summary

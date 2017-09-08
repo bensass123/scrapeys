@@ -52,36 +52,36 @@ $('div.list-view-item').each(function(i, elem) {
     // band/event
     var mains = [];
     var headliners = $(elem).children('div.list-view-details').children('h1.headliners');
-    //console.log(headliners.length);
+    //// console.log(headliners.length);
     headliners.each((i, elem)=>{
         mains[i] = $(elem).text();
     })
     var event = mains.join(' & ');
-    //console.log(event, "  <-- headliners string");
+    //// console.log(event, "  <-- headliners string");
     
 
     var opener = $(elem).children('div.list-view-details').children('h2.supports').text();
-    //console.log(opener.length, ' <---- openers')
+    //// console.log(opener.length, ' <---- openers')
     if (opener.length > 0) {
-        // console.log(opener,"opening");
+        // // console.log(opener,"opening");
         event += " [Opening Act: " + opener + "]";
     }
 
     show.event = event;
-    //console.log(show.event);
+    //// console.log(show.event);
     // end band event
 
     // date
 
-    console.log(moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17"));
+    // console.log(moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17"));
     show.date = moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17");
 
     // times
-    //console.log($(elem).children('div.list-view-details').children('h2.times').text());
+    //// console.log($(elem).children('div.list-view-details').children('h2.times').text());
     show.times = $(elem).children('div.list-view-details').children('h2.times').text().trim();
 
     //href
-    //console.log($(elem).children('div.list-view-details').prev().attr('href'), '<-- href');
+    //// console.log($(elem).children('div.list-view-details').prev().attr('href'), '<-- href');
     show.href = 'http://www.eveningmuse.com' + $(elem).children('div.list-view-details').prev().attr('href');
 
     //ticketfly
@@ -92,17 +92,17 @@ $('div.list-view-item').each(function(i, elem) {
     
 
     show.tix = tix;
-    // console.log(tix, '<-- tix');
+    // // console.log(tix, '<-- tix');
 
 
-    // console.log(i);
-    // console.log('\n\n\n');
+    // // console.log(i);
+    // // console.log('\n\n\n');
 
     if (!(arrContains(show, shows))) {
         shows.push(show);
     }
 
-    console.log(show, i);
+    // console.log(show, i);
     
 })
 

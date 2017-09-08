@@ -30,7 +30,7 @@ var doit = (obj) => {
             
             
         })
-        console.log(newobj.desc);
+        // console.log(newobj.desc);
 
         var tix, i, href;
         href = obj.href;
@@ -39,9 +39,9 @@ var doit = (obj) => {
         
 
         newobj.tix = tix;
-        console.log(tix, '<-- tix');
+        // console.log(tix, '<-- tix');
 
-        console.log('\n\n', '----');
+        // console.log('\n\n', '----');
         newData.push(newobj);
     })
 }

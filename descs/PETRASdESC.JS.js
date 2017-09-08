@@ -107,7 +107,7 @@ for (var i = 0; i < data.length; i++) {
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
     fs.writeFile('../../cltmusic/JSON/VISULITE-FULL.json', json, 'utf8', ()=>{
-        console.log('VISULITE-FULL.json created');
+        // console.log('VISULITE-FULL.json created');
     })
 }
 

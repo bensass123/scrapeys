@@ -21,7 +21,7 @@ return fly.substring(43,49);
 
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
-    fs.writeFile('../descs/PETRAS-PARTIAL.json', json, 'utf8', ()=>{
+    fs.writeFile('../JSON/PETRAS-PARTIAL.json', json, 'utf8', ()=>{
         console.log('PETRAS-PARTIAL.json created');
     })
 }
@@ -64,10 +64,11 @@ jsonScript.forEach(function(element) {
     // console.log(element.url);
     // console.log('-------------------');
 
-    shows.push
+    shows.push(show);
     
 }, this);
 
-// console.log('\n')
+// console.log('\n');
+// console.log(shows);
 
 makeFile(shows);

@@ -20,7 +20,7 @@ var getTuneStub = (fly) => {
 var makeFile = (obj) => {
     var json = JSON.stringify(obj);
     fs.writeFile('../../cltmusic/JSON/SNUG-FULL.json', json, 'utf8', ()=>{
-        console.log('snug-FULL.json created');
+        console.log('SNUG-FULL.json created');
     })
 }
 
@@ -49,37 +49,37 @@ $('div.show-info').each(function(i, elem) {
     }
 
     // band/event
-    console.log($(elem).children('h3.show-title').text());
+    // console.log($(elem).children('h3.show-title').text());
     show.event = $(elem).children('h3.show-title').text();
 
     // date
-    console.log(moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('MM DD YY'));
+    // console.log(moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('MM DD YY'));
     show.date = moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('MM DD YY');
 
     //desc 
-    console.log($(elem).children('p.show-desc').text());
+    // console.log($(elem).children('p.show-desc').text());
     show.desc = $(elem).children('p.show-desc').text();
 
     // // times
-    console.log($(elem).children('span.all-date').children('span.show-time').text().trim());
+    // console.log($(elem).children('span.all-date').children('span.show-time').text().trim());
     show.times = 'Doors:  ' + $(elem).children('span.all-date').children('span.show-time').text().trim();
 
     // //href
-    console.log($(elem).prev().children('a').attr('href'));
+    // console.log($(elem).prev().children('a').attr('href'));
     show.href = 'http://www.tunestub.com/events/' + getTuneStub($(elem).prev().children('a').attr('href'));
 
     //TuneStub
-    console.log(getTuneStub($(elem).prev().children('a').attr('href')));
+    // console.log(getTuneStub($(elem).prev().children('a').attr('href')));
     show.tuneStub = getTuneStub($(elem).prev().children('a').attr('href'));
 
     //tix
     show.tix = 'http://www.tunestub.com/events/' + show.tuneStub;
-    console.log(show.tix, ' <---- tix link')
+    // console.log(show.tix, ' <---- tix link')
 
 
-    // console.log(i)
+    // // console.log(i)
 
-    console.log('\n\n\n')
+    // console.log('\n\n\n')
 
     if (!(arrContains(show, shows))) {
         shows.push(show);
@@ -89,7 +89,7 @@ $('div.show-info').each(function(i, elem) {
 
 // uncomment this
 
-console.log(shows);
+// console.log(shows);
 makeFile(shows);
 
 

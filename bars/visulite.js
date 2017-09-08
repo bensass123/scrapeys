@@ -54,14 +54,14 @@ $('div.showDetails').each(function(i, elem) {
     //href 
     var hrefString = 'https://www.visulite.com/' + $(elem).children('p.show-details').children('span.ui-button-text').children('a').attr('href');
     show.href = hrefString;
-    console.log(hrefString)
+    // console.log(hrefString)
 
-    console.log('\n\n\n');
-    console.log(i)
+    // console.log('\n\n\n');
+    // console.log(i)
 
     shows.push(show);
 })
 
-console.log(shows.length);
+// console.log(shows.length);
 makeFile(shows);
 

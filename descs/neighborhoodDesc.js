@@ -35,7 +35,7 @@ var doit = (obj) => {
         var newObj = obj;
 
         var desc = $('div.artist-box-headliner').children('div.bio').text();
-        console.log(desc);
+        // console.log(desc);
         newObj.desc = desc;
 
         // setting ticket link
@@ -48,9 +48,9 @@ var doit = (obj) => {
         
 
         newObj.tix = tix;
-        console.log(tix, '<-- tix');
+        // console.log(tix, '<-- tix');
 
-        console.log('\n\n', '----');
+        // console.log('\n\n', '----');
 
         
         if (!(arrContains(newObj, newData))) {

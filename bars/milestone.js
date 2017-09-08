@@ -49,23 +49,23 @@ $('div.eventlist--upcoming').children('article').each(function(i, elem) {
     }
 
     // band/event
-    console.log($(elem).children('div.eventlist-column-info').children('h1.eventlist-title').text());
+    // console.log($(elem).children('div.eventlist-column-info').children('h1.eventlist-title').text());
     show.event = $(elem).children('div.eventlist-column-info').children('h1.eventlist-title').text();
 
     // date
-    console.log(moment($(elem).children('a.eventlist-column-date').children('div.eventlist-datetag').children('div.eventlist-datetag-inner').children('div.eventlist-datetag-startdate').text()).format('MM DD 17'));
+    // console.log(moment($(elem).children('a.eventlist-column-date').children('div.eventlist-datetag').children('div.eventlist-datetag-inner').children('div.eventlist-datetag-startdate').text()).format('MM DD 17'));
     show.date = moment($(elem).children('a.eventlist-column-date').children('div.eventlist-datetag').children('div.eventlist-datetag-inner').children('div.eventlist-datetag-startdate').text()).format('MM DD 17');
 
     //desc 
     var descStr = $(elem).children('div.eventlist-column-info').children('div.eventlist-excerpt').text();
     descStr = descStr.substring(0, descStr.length - 11);
-    console.log(descStr);
+    // console.log(descStr);
     show.desc = descStr;
 
     // times
     var times = $(elem).children('div.eventlist-column-info').children('ul.eventlist-meta').children('li.eventlist-meta-time').text().trim();
     times = 'Doors:   ' + times.substring(0,7).trim();
-    console.log(times);
+    // console.log(times);
     show.times = times;
 
     //ticketfly
@@ -74,10 +74,10 @@ $('div.eventlist--upcoming').children('article').each(function(i, elem) {
         show.tix = flyStr;
     }
 
-    console.log(show.tix, "  <--- tix");
-    console.log(i, "<-index");
+    // console.log(show.tix, "  <--- tix");
+    // console.log(i, "<-index");
 
-    console.log('\n');
+    // console.log('\n');
     
     
     if (!(arrContains(show, shows))) {
@@ -93,4 +93,4 @@ setTimeout(()=>{
 }, 1000);
 
 
-console.log(shows.length, '<-- shows.length');
+// console.log(shows.length, '<-- shows.length');

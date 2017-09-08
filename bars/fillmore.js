@@ -51,32 +51,32 @@ $('div.evContW').each(function(i, elem) {
 
     // band/event
     show.event = $(elem).children('a').children('div.titleWidth').children('div.titleSize').children('div.tSize').text().trim();
-    console.log(show.event);
+    // console.log(show.event);
     
     // venue - underground or fillmore
     var venue = $(elem).children('a').children('div.titleWidth').children('div.vlogo-sm').children('img').attr('src');
-    console.log(venue,'******');
+    // console.log(venue,'******');
     if (venue.toLowerCase().includes('underground')) {
-        console.log('underground');
+        // console.log('underground');
         show.venue = "The Underground"
     } else {
-        console.log('fillmore');
+        // console.log('fillmore');
     }
 
     // tix
     show.tix = $(elem).children('div.event-btns').children('a.evTktBtn').attr('href');
-    console.log(show.tix, ' tix <---');
+    // console.log(show.tix, ' tix <---');
 
     // href
     show.href = $(elem).children('div.event-btns').children('a.btn-color').attr('href');
-    console.log(show.href);
+    // console.log(show.href);
 
     // date
     var date = $(elem).children('a').children('div.titleWidth').children('div.titleSize').children('div.eventDate').text().trim();
     date = date.substring(date.length - 6, date.length);
     date = moment(date).format('MM DD 17');
     show.date = date;
-    console.log(show.date);
+    // console.log(show.date);
     
     // desc 
 
@@ -85,14 +85,14 @@ $('div.evContW').each(function(i, elem) {
     // var i = times.indexOf('Show:');
     //times = times.substring(i+5, times.length-2).trim();
     show.times = times;
-    console.log(show.times);
+    // console.log(show.times);
 
     // IMG
     show.img = $(elem).children('a').children('div.event-imageCal').children('img').attr('src');
-    console.log(show.img);
+    // console.log(show.img);
 
 
-    console.log('\n')
+    // console.log('\n')
 
     if (!(arrContains(show, shows))) {
         shows.push(show);
