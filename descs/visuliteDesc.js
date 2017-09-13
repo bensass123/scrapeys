@@ -2,7 +2,6 @@
 
 // muse-description scraper 
 
-
 var fs = require('fs'),
 path = require('path');
 
@@ -10,9 +9,7 @@ var rp = require('request-promise');
 
 var moment = require('moment');
 
-
 var cheerio = require('cheerio');
-
 
 var data = require('../JSON/VISULITE-PARTIAL.json');
 
@@ -53,7 +50,6 @@ var doit = (obj) => {
             }
             // console.log('***');
             
-
             // event title
             var title;
             //add ampersand for multiple bands
@@ -73,7 +69,7 @@ var doit = (obj) => {
             var str = $(elem).children('p').text();
             str = str.substring(0,10);
             // console.log(moment(str).format('MM DD YY'));
-            newObj.date = moment(str).format('MM DD YY');
+            newObj.date = moment(str).format('L');
 
             // times
             var timeStr = $(elem).children('p').text();
@@ -86,15 +82,10 @@ var doit = (obj) => {
             var desc = $(elem).children('div.bio').text();
             //// console.log(desc);
             newObj.desc = desc;
-
-            
-
-            // console.log('\n\n', '----');
             
             if (!(arrContains(newObj, newData))) {
                 newData.push(newObj);
             }
-            
         })
     })
 }
@@ -113,4 +104,4 @@ var makeFile = (obj) => {
 
 setTimeout(()=>{
     makeFile(newData);
-}, 3000);
+}, 8000);

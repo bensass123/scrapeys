@@ -54,7 +54,7 @@ $('div.show-info').each(function(i, elem) {
 
     // date
     // console.log(moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('MM DD YY'));
-    show.date = moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('MM DD YY');
+    show.date = moment($(elem).children('span.all-date').children('span.show-date').text().trim()).format('L');
 
     //desc 
     // console.log($(elem).children('p.show-desc').text());

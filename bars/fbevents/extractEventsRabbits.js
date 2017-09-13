@@ -25,22 +25,31 @@ var makeFile = (obj) => {
 
 
 var isLive = (str) => {
-    var r = str.toLowerCase().includes('karaoke') ||
+    try {
+        var r = str.toLowerCase().includes('karaoke') ||
             str.toLowerCase().includes('watch party') ||
             str.toLowerCase().includes('trivia') ||
             str.toLowerCase().includes('nfl') ||
             str.toLowerCase().includes('private');
-    return !r;
+        return !r;
+    } catch(e) {
+        console.log(e);
+        return false;
+    }
 }
 
 
 data.forEach(function(elem) {
     try {
-
+        if (elem.place.name.includes('The Peculiar Rabbit')) {
+            venue = 'The Peculiar Rabbit';
+        } else {
+            venue = elem.place.name;
+        }
         var venue;
         // if (elem.)
         var show = {
-                venue: elem.place.name,
+                venue: venue,
                 event: elem.name,
                 date: moment(elem.start_time).format('L'),
                 times: moment(elem.start_time).format('LT'),
@@ -49,18 +58,17 @@ data.forEach(function(elem) {
                 desc: elem.description,
                 ticketfly: '',
                 tix: 'http://www.facebook.com/events/' + elem.id
-            }
-        
-            if (isLive(show.desc)) {
-                shows.push(show);
-                console.log(elem.name);
-                console.log(venue);
-                // console.log(elem);
-                // console.log(elem.description);
-                console.log(moment(elem.start_time).format('LT'));
-                console.log(elem.id);
-                console.log('----');
-            }
+            }     
+        if (isLive(show.desc) && isLive(show.event)) {
+            shows.push(show);
+            console.log(elem.name);
+            console.log(venue);
+            // console.log(elem);
+            // console.log(elem.description);
+            console.log(moment(elem.start_time).format('LT'));
+            console.log(elem.id);
+            console.log('----');
+        }
     } catch(e) {
         console.log(e);
     }

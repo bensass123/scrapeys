@@ -71,8 +71,8 @@ $('tr').each(function(i, elem) {
     //// console.log($(elem).children('td.date').children('ul').text().trim());
     // var str = $(elem).children('td.date').children('ul').text().trim();
     
-    show.date = moment($(elem).children('td.date').children('ul').text().trim()).format('MM DD 17');
-
+    var date = moment($(elem).children('td.date').children('ul').text().trim()).format('MM DD 17');
+    show.date = moment(date).format('L');
     // // console.log(moment($(elem).children('td.date').children('ul').text().trim()).format('MM DD 17'));
 
     // // times

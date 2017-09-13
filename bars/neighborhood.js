@@ -67,10 +67,11 @@ $('div.list-view-item').each(function(i, elem) {
     date = date.substring(date.length - 5, date.length);
     // setting year to 18 for any month before August
     if (date.charAt(0) === ' ' && date.charAt(1) <= 7) {
-        show.date = moment(date).format('MM DD 18');
+        date = moment(date).format('MM DD 18');
     } else {
-        show.date = moment(date).format('MM DD 17');
+        date = moment(date).format('MM DD 17');
     }
+    show.date = moment(date).format('L');
     // console.log(show.date);
     // end date
 

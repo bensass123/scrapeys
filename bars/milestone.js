@@ -54,7 +54,9 @@ $('div.eventlist--upcoming').children('article').each(function(i, elem) {
 
     // date
     // console.log(moment($(elem).children('a.eventlist-column-date').children('div.eventlist-datetag').children('div.eventlist-datetag-inner').children('div.eventlist-datetag-startdate').text()).format('MM DD 17'));
-    show.date = moment($(elem).children('a.eventlist-column-date').children('div.eventlist-datetag').children('div.eventlist-datetag-inner').children('div.eventlist-datetag-startdate').text()).format('MM DD 17');
+    var date = moment($(elem).children('a.eventlist-column-date').children('div.eventlist-datetag').children('div.eventlist-datetag-inner').children('div.eventlist-datetag-startdate').text()).format('MM DD 17');
+    // fix to standard date
+    show.date = moment(date).format('L');
 
     //desc 
     var descStr = $(elem).children('div.eventlist-column-info').children('div.eventlist-excerpt').text();

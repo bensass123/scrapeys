@@ -26,7 +26,7 @@ var isLiveMusic = (event) => {
 }
 
 var eventObjMaker = (event) => {
-    var date = moment(event.start).format('MM DD YY');
+    var date = moment(event.start).format('L');
     var time;
     if (event.summary.charAt(event.summary.length - 5) == ':') {
         time = event.summary.substring(event.summary.length - 7, event.summary.length).trim()
@@ -35,7 +35,7 @@ var eventObjMaker = (event) => {
     }
     
     
-    if (date > moment().subtract(5, 'days').format('MM DD YY')) {
+    if (date > moment().subtract(5, 'days').format('L')) {
         var summary = event.summary;
         summary = summary.substring(summary.indexOf(' ') + 1, summary.lastIndexOf(' '));
         let obj = {

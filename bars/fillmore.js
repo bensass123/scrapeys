@@ -75,6 +75,7 @@ $('div.evContW').each(function(i, elem) {
     var date = $(elem).children('a').children('div.titleWidth').children('div.titleSize').children('div.eventDate').text().trim();
     date = date.substring(date.length - 6, date.length);
     date = moment(date).format('MM DD 17');
+    date = moment(date).format('L');
     show.date = date;
     // console.log(show.date);
     

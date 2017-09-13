@@ -74,8 +74,8 @@ $('div.list-view-item').each(function(i, elem) {
     // date
 
     // console.log(moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17"));
-    show.date = moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17");
-
+    var date = moment($(elem).children('div.list-view-details').children('h2.dates').text()).format("MM DD 17");
+    show.date = moment(date).format('L');
     // times
     //// console.log($(elem).children('div.list-view-details').children('h2.times').text());
     show.times = $(elem).children('div.list-view-details').children('h2.times').text().trim();

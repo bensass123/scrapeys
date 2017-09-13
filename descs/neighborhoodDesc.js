@@ -76,4 +76,4 @@ var makeFile = (obj) => {
 
 setTimeout(()=>{
     makeFile(newData);
-}, 3000);
+}, 8000);

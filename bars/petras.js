@@ -38,7 +38,7 @@ var shows = [];
 jsonScript.forEach(function(element) {
     //// console.log(element);
 
-    let date = moment(element.startDate).format('MM DD YY');
+    let date = moment(element.startDate).format('L');
     let time = moment(element.startDate).get('hour');
     let show = {
             venue: "Petra's Bar",
