@@ -14,6 +14,6 @@ var h = require('./hatties.js');
 
 setTimeout(()=>{
     var descs = require('../descs/all.js');
-}, 15000)
+}, 30000)
 
 
